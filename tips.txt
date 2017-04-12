@@ -1,0 +1,11 @@
+
+app
+model
+init
+repeat
+
+Modules:
+    - AngularJS modules essentially allow us to segment our application code into logical chunks, which we can manage separately from each other.
+    - Task:  Create a module assigned to ng-app
+
+Controllers:
