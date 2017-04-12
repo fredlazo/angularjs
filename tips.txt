@@ -1,5 +1,15 @@
 
+Lesson 17:
+.success is deprecated
+
+$http.get('./data/ninjas.json').success(function(data){
+    $scope.ninjas = data;
+});
+
+
+
 Ctrl+Alt+L = server
+Ctrl+Alt+Q = stop server (had to do this in lesson 16)
 
 app
 model

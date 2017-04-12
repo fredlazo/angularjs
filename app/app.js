@@ -15,7 +15,7 @@ myNinjaApp.config(['$routeProvider', function($routeProvider){
 }]);
 
 
-myNinjaApp.controller('NinjaController', ['$scope', function($scope){
+myNinjaApp.controller('NinjaController', ['$scope', '$http', function($scope, $http){
         $scope.removeNinja = function(ninja){
             var removedNinja = $scope.ninjas.indexOf(ninja);
             $scope.ninjas.splice(removedNinja,1);
@@ -34,31 +34,18 @@ myNinjaApp.controller('NinjaController', ['$scope', function($scope){
         //$scope.newcar.price = "";
 
         };
-        $scope.ninjas = [
-            {
-            name: 'Honda',
-            color: 'Red',
-            price: 19000,
-            available: true,
-            thumb: "content/img/homer.jpg"
-            },
-            {name: 'Toyota',
-            color: 'Black',
-            price: 18000,
-            available: true,
-            thumb: "content/img/marge.jpg"
-            },
-            {name: 'Subaru',
-            color: 'Blue',
-            price: 22000,
-            available: true,
-            thumb: "content/img/bart.jpg"
-            },
-            {name: 'Nissan',
-            color: 'Orange',
-            price: 25000,
-            available: true,
-            thumb: "content/img/lisa.jpg"
-            },
-        ];
+
+
+//.success is deprecated.  use .then
+        $http.get('data/ninjas.json').then(function(response){
+            $scope.ninjas = response.data;
+        });
+
+
+        /*
+        $http.get('./data/ninjas.json').success(function(data){
+            $scope.ninjas = data;
+        });
+        */
+
 }]);
