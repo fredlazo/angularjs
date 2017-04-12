@@ -1,4 +1,6 @@
 
+Ctrl+Alt+L = server
+
 app
 model
 init
