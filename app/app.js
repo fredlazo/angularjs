@@ -1,11 +1,19 @@
-var myNinjaApp = angular.module('myNinjaApp', ['ngRoute']);
+var myNinjaApp = angular.module('myNinjaApp', ['ngRoute', 'ngAnimate']);
 
-myNinjaApp.config(['$routeProvider', function($routeProvider){
+myNinjaApp.config(['$routeProvider',  function($routeProvider){
 
     $routeProvider
         .when('/home', {
             templateUrl: 'views/home.html',
             controller: 'NinjaController'
+        })
+        .when('/contact', {
+            templateUrl: 'views/contact.html',
+            controller: 'ContactController'
+        })
+        .when('/contact-success', {
+            templateUrl: 'views/contact-success.html',
+            controller: 'ContactController'
         })
         .when('/directory', {
             templateUrl: 'views/directory.html',
@@ -22,7 +30,9 @@ myNinjaApp.directive('randomNinja', [function(){
             ninjas: '=',
             title: '='
         },
-        templateUrl: 'views/random.html', 
+        templateUrl: 'views/random.html',
+        transclude: true,
+        replace: true,
         controller: function($scope){
             $scope.random = Math.floor(Math.random() * 4);
         }
@@ -49,6 +59,9 @@ myNinjaApp.controller('NinjaController', ['$scope', '$http', function($scope, $h
 
         };
 
+$scope.removeAll= function(){
+    $scope.ninjas = [];
+};
 
 //.success is deprecated.  use .then
         $http.get('data/ninjas.json').then(function(response){
@@ -62,4 +75,11 @@ myNinjaApp.controller('NinjaController', ['$scope', '$http', function($scope, $h
         });
         */
 
+}]);
+
+myNinjaApp.controller('ContactController', ['$scope', '$location', function($scope, $location){
+    $scope.sendMessage = function(){
+            $location.path('/contact-success');
+
+    };
 }]);

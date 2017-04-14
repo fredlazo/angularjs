@@ -1,10 +1,30 @@
 
-Lesson 17:
-.success is deprecated
+Skipped Lesson 25: Pretty URLs
 
-$http.get('./data/ninjas.json').success(function(data){
-    $scope.ninjas = data;
-});
+Lesson 22: See comments for additional CSS
+.content textarea{
+  width: 90%;
+  padding: 10px 5%;
+  border-radius: 10px;
+  border: 2px solid #ddd;
+  margin: 10px 0;
+}﻿
+
+
+Lesson 16:
+
+    Had to add #! instead of just #
+
+    read about $locationProvider and $locationProvider.hashPrefix()﻿
+
+
+
+Lesson 17:
+    .success is deprecated
+
+    $http.get('./data/ninjas.json').success(function(data){
+        $scope.ninjas = data;
+    });
 
 
 

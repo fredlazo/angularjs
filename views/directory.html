@@ -2,7 +2,7 @@
     <button ng-click=" sort = 'name' ">Sort by name</button>
     <button ng-click=" sort = 'color' ">Sort by color</button>
     <input type="text" ng-model="search" placeholder="Search for a car"/>
-    <ul>
+    <ul id="ninja-list">
         <li ng-repeat="ninja in ninjas | orderBy: sort  | filter: search" ng-show='ninja.available'">
             <img ng-src="{{ninja.thumb}}" style="margin: -12px 10px 0 0 ; float: left; width: 50px;"
             ng-show="ninja.thumb" />
@@ -13,8 +13,9 @@
      </ul>
      <form ng-submit = "addCar()">
          <input type="text" placeholder="name" ng-model="newcar.name"/>
-         <input type="text" placeholder="color" ng-model="newcar.color"/>
+         <input type="text" placeholder=¡"color" ng-model="newcar.color"/>
          <input type="text" placeholder="price" ng-model="newcar.price"/>
          <input type="submit" value="Add new car" />
      </form>
+     <a href="" ng-click="removeAll()">Remove all</a>
 </div>

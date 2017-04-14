@@ -21,14 +21,14 @@ h1,h2,h3{
 }
 
 #menu-bar{
-  background: crimson;
-  color: #fff;
+  background: #f4d942;
+  color: #418ff4;
   padding: 10px;
 }
 
 #menu-bar h1{
   font-size: 24px;
-  font-weight: normal;
+  font-weight: heavy;
   display: inline-block;
 }
 
@@ -45,7 +45,7 @@ h1,h2,h3{
 }
 
 #menu-bar a{
-  color: #fff
+  color: #418ff4
 }
 
 main{
@@ -57,7 +57,16 @@ main{
 
 .content{
   padding: 20px;
+  overflow: hidden;
 }
+
+.content textarea{
+  width: 90%;
+  padding: 10px 5%;
+  border-radius: 10px;
+  border: 2px solid #ddd;
+  margin: 10px 0;
+}﻿
 
 .content button,
 .content input[type="submit"]{
@@ -121,4 +130,54 @@ main{
   color: crimson;
   cursor: pointer;
   margin-left: 10px;
+}
+
+
+
+/* The starting CSS styles for the enter animation */
+main.ng-enter {
+  transition:0.5s linear all;
+  opacity:0;
+}
+
+/* The finishing CSS styles for the enter animation */
+main.ng-enter.ng-enter-active {
+  opacity:1;
+}
+
+#ninja-list li.ng-enter{
+    transition: 0.2s linear all;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+#ninja-list li.ng-enter.ng-enter-active{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#ninja-list li.ng-leave{
+    transition: 0.2s linear all;
+    opacity: 1;
+    transform: translateX(0px);
+}
+
+#ninja-list li.ng-leave.ng-leave-active{
+    opacity: 0;
+    transform: translateX(-100%);
+}
+
+
+#ninja-list li.ng-leave-stagger{
+    transition-delay: 0.25s;
+    transition-duration: 0;
+}
+ input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched{
+     border: 2px solid red;
+ }
+
+input[disabled="disabled"]{
+    opacity: 0.4;
+    cursor: not-allowed !important;
+
 }
